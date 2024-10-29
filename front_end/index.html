@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vote Dapp</title>
+    <link rel="stylesheet" type="text/css" href="style.css" />
+    
+    <!-- Include detect-provider script -->
+    <script src="https://unpkg.com/@metamask/detect-provider/dist/detect-provider.min.js"></script>
+    
+    <!-- Include Ethers.js -->
+    <script src="https://cdn.jsdelivr.net/npm/ethers@5.7.2/dist/ethers.umd.min.js"></script>
+</head>
+<body>
+    <div id="connectMetamask">
+        <p id="connectWalletMessage">Please connect your wallet to Vote</p>
+        <button id="connectWallet">Connect Wallet</button>
+    </div>
+
+    <div id="votingStation" style="display: none;">
+        <div id="messageContainer" style="display: none;"></div> <!-- Message container -->
+        <div id="loader" class="loader" style="display: none;"></div> <!-- Loading spinner -->
+
+        <div id="timer">
+            <p id="timerMessage"><span id="time">123</span> Seconds Left</p>
+        </div>
+
+        <div id="mainBoard">
+            <table id="candidateBoard">
+                <tr>
+                    <th>ID No.</th>
+                    <th>Candidate</th>
+                </tr>
+                <tr>
+                    <td>0</td>
+                    <td>Ilyas Sacha</td>
+                </tr>
+                <tr>
+                    <td>1</td>
+                    <td>Sihame Yamalhi</td>
+                </tr>
+                <tr>
+                    <td>2</td>
+                    <td>John Doe</td>
+                </tr>
+            </table>
+        </div>
+
+        <div id="voteForm">
+            <p>Please Select The ID Of The Candidate You Would Like To Vote:</p>
+            <label>
+                <input type="number" id="vote" />
+                <button id="sendVote">Send Vote</button>
+            </label>
+        </div>
+
+        <div id="showResultContainer">
+            <button id="showResult">Show Result</button>
+        </div>
+
+        <div id="result">
+            <table id="resultBoard">
+                <tr>
+                    <th>ID No.</th>
+                    <th>Candidate</th>
+                    <th>Number Of Votes</th>
+                </tr>
+                <tr>
+                    <td>0</td>
+                    <td>Ilyas Sacha</td>
+                    <td>vote count</td>
+                </tr>
+                <tr>
+                    <td>1</td>
+                    <td>Sihame Yamalhi</td>
+                    <td>vote count</td>
+                </tr>
+                <tr>
+                    <td>2</td>
+                    <td>John Doe</td>
+                    <td>vote count</td>
+                </tr>
+            </table>
+        </div>
+
+        <div id="admin" style="display: none;">
+            <p id="adminHeading">Admin Center</p>
+            <div id="tools">
+                <div id="startElection">
+                    <p id="startElectionMessage">Start Election</p>
+                    <input type="text" id="candidates" placeholder="Names separated by comma (, )"/>
+                    <input type="number" id="electionDuration" placeholder="duration in minutes" />
+                    <button id="startAnElection">Start Election</button>
+                </div>
+                <div id="addCandidate">
+                    <p id="addCandidateMessage">Add a Candidate</p>
+                    <input type="text" id="candidate" placeholder="candidate name" />
+                    <button id="addTheCandidate">Add Candidate</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Include your script.js after Ethers.js and detect-provider -->
+    <script src="script.js"></script>
+</body>
+</html>
